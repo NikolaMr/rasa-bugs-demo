@@ -9,6 +9,8 @@ stories:
   - intent: greet
   - action: utter_greet
   - intent: declare_payment_type
+    entities:
+      - payment_type: card
   - slot_was_set:
     - payment_type: card
   - action: utter_repeat_payment_method
@@ -21,17 +23,12 @@ stories:
   - intent: greet
   - action: utter_greet
   - intent: declare_payment_type
+    entities:
+      - payment_type: cash
   - slot_was_set:
     - payment_type: cash
   - action: utter_we_dont_accept_cash
   - action: utter_goodbye
-
-- story: greetings
-  steps:
-  - slot_was_set:
-    - payment_type: empty
-  - intent: greet
-  - action: utter_greet
 
 - story: goodbye
   steps:
